@@ -11,6 +11,8 @@ Create a new project:
 ▶ cookiecutter https://github.com/cmdlabs/cookiecutter-terraform.git
 ```
 
+Or you can use the path to the checked out project instead of the HTTPS URL.
+
 Update an existing project:
 
 ```text
