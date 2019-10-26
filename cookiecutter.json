@@ -1,0 +1,7 @@
+{
+  "module_name": "terraform-aws-example",
+  "module_description": "Terraform AWS Example",
+  "code_owner": "@alexharv074",
+  "release_date": "2020-01-01",
+  "terraform_version": "0.12.0"
+}

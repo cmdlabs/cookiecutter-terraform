@@ -1,0 +1,57 @@
+<!-- vim: set ft=markdown: -->
+![CMD Solutions|medium](https://s3-ap-southeast-2.amazonaws.com/cmd-website-images/CMDlogo.jpg)
+
+# {{cookiecutter.module_name}}
+
+<%= %x{ruby erb/toc.rb erb/README.erb} -%>
+
+## Overview
+
+This is an example project.
+
+Terraform <%= %x[awk -F '"' '/required_version/ {print $2}' versions.tf].chomp -%> is required for this module.
+
+## {{cookiecutter.module_description}} - Overview Diagram
+
+![Example|medium](docs/example.png)
+
+## {{cookiecutter.module_description}}
+
+### Resources docs
+
+{{cookiecutter.module_description}} automation includes use of the following core Terraform resources:
+
+- [`aws_some_resource`](https://www.terraform.io/docs/providers/aws/r/some_resource.html) - A resource that does something.
+
+### Inputs
+
+The below outlines the current parameters and defaults.
+
+| Name | Description | Type | Default | Required |
+|------|-------------|:----:|:-------:|:--------:|
+<%= %x{ruby erb/variables2md.rb variables.tf} -%>
+
+### Outputs
+
+|Name|Description|
+|------------|---------------------|
+<%= %x{ruby erb/outputs2md.rb outputs.tf} -%>
+
+### Examples
+
+Example:
+
+```tf
+<% remote = %x{git remote -v}.split("\n")[0].split[1] -%>
+<%= %x{sed -E 's!source( +)=.*!source\\1= "#{remote}"!' examples/example/main.tf} -%>
+```
+
+To apply that:
+
+```text
+▶ terraform apply
+```
+
+## License
+
+Apache 2.0.
